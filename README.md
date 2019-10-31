@@ -7,7 +7,7 @@ Database - Postgresql
 This is a simple timesheet application built using ruby on rails.
 
 ## User
-A user can perform the following actions:
+User can perform the following actions:
 1. Login.
 2. Sign up.
 3. Change password
