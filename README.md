@@ -1,6 +1,6 @@
 # Timesheet Application
 
-Ruby version - 2.6.5 | Rails version - 6.0 | Database - Postgresql
+Ruby version - 2.6.5 | Rails version - 6.0 | Database - Postgresql | OS - Windows 10
 
 This is a simple timesheet application built using ruby on rails.
 
