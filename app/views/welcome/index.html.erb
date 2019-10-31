@@ -1,0 +1,87 @@
+<head>
+  <title>TimeCamp</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-brand">
+      TimeCamp
+    </div>
+    <ul class="nav navbar-nav">
+        <li class="active"><%= link_to 'Home', welcome_index_path, :style => 'text-decoration:none' %></li>
+    <% if current_user %>
+        <li><%= link_to 'Fill Timesheet', new_user_record_path, :style => 'text-decoration:none' %></li>
+        <li><%= link_to 'View my timesheet entries', user_records_path, :style => 'text-decoration:none' %></li>
+        <li><%= link_to 'Change Password', edit_user_registration_path, :style => 'text-decoration:none' %></li>
+        <li><%= link_to 'Log Out', destroy_user_session_path , method: :delete, :style => 'text-decoration:none' %></li>
+    </ul>
+     <ul class="nav navbar-nav navbar-right">
+      <li><a><span class="glyphicon glyphicon-user">&nbsp</span><%= current_user.email %></a></li>
+    </ul>
+    <% else %>
+        <li><%= link_to 'Sign Up', new_user_registration_path, :style => 'text-decoration:none' %></li>
+        <li><%= link_to 'Log In', new_user_session_path, :style => 'text-decoration:none' %></li>
+        <li><%= link_to 'Log In as Admin', admin_root_path, :style => 'text-decoration:none' %></li>
+    </ul>
+    <% end %>
+  </div>
+</nav>
+
+
+
+
+<div class="jumbotron text-center">
+  <h1>TimeCamp</h1>
+  <p>Created by: Dewanshu Chhatlani</p> 
+</div>
+
+
+<div class="container">
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+</div>
+
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>User</h3>
+      <p>A user can perform the following actions:</p>
+      <p>1. Login.</p>
+      <p>2. Sign up.</p>
+      <p>3. Change password</p>
+      <p>4. Fill his/her timesheet.</p>
+      <p>5. View his/her timesheet entries.</p>
+      
+    </div>
+    <div class="col-sm-4">
+      <h3></h3>
+      <p></p>
+      <p></p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Admin</h3>        
+      <p>An admin can do the following activities:</p>
+      <p>1. Log In as Admin.</p>
+      <p>2. View all the timesheet entries by all the users.</p>
+      <p>3. Edit a particular timesheet entry.</p>
+      <p>4. Delete a particular timesheet entry.</p>
+    </div>
+  </div>
+</div>
+
+</body>
