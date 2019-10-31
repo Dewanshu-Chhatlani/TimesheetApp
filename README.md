@@ -27,4 +27,5 @@ An admin can do the following activities:
 5. Run `rails db:setup` to set up the database.
 6. Run `rails server` to start the server.
 7. Open your browser and visit `http://localhost:3000/` to see the appliction running.
+
 (Additionally you will have to install nodeJS and yarn to provide runtime environment.)
