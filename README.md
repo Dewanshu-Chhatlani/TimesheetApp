@@ -22,7 +22,7 @@ An admin can do the following activities:
 
 ## To run this application:
 1. Clone/Download this repository.
-2. Open Command Prompt and navigate to the folder of the cloned repository.
+2. Open Command Prompt and navigate to the cloned repository.
 3. Run `bundle install`
 4. Change the contents of `database.yml` to configure the database.
 5. Run `rails db:setup` to set up the database.
