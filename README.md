@@ -2,6 +2,7 @@
 
 Ruby version - 2.6.5
 Rails version - 6.0
+Database - Postgresql
 
 This is a simple timesheet application built using ruby on rails.
 
