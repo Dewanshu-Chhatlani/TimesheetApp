@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  <script>
+  <%# <script>
     $( document ).ready(function() {
         $( '.flatpickr' ).flatpickr({
   	          noCalendar: true,
@@ -16,10 +16,10 @@
           dateFormat: "d-m-Y"
         });
     });
-  </script>
+  </script> %>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <%# <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> %>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -63,7 +63,7 @@
       <br>
       <p style='padding-left:60px;'>
         <%= form.label :activity_type %><br>
-        <%= form.text_field :activity_type, :required => 'required' %>
+        <%= form.collection_select(:activity_type, Activity.all, :activity_type, :activity_type) %>
       </p>
       <br>
       <div style='padding-left:40px;'>
