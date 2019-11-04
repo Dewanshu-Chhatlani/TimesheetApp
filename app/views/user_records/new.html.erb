@@ -19,26 +19,26 @@
             <%= form.collection_select(:activity_type, Activity.all, :activity_type, :activity_type) %>
           </p>
           <br>
-          <div>
+          <p>
             <%= form.label :date %><br>
             <%= form.text_field :date, placeholder: 'DD-MM-YYYY', class: 'flatpikrcal', readonly: true, :required => 'required' %>
-          </div>
+          </p>
           <br>
           <p>
             <%= form.label :start_time %><br>
             <%= form.text_field :start_time, placeholder: 'HH:MM AM/PM', class: 'flatpickr flatpickr-input active', readonly: true, :required => 'required' %>
           </p>
-        <br>
+          <br>
           <p>
             <%= form.label :end_time %><br>
             <%= form.text_field :end_time, placeholder: 'HH:MM AM/PM', class: 'flatpickr flatpickr-input active', readonly: true, :required => 'required' %>
           </p>
-        <br>
+          <br>
           <p>
             <%= form.label :description %><br>
             <%= form.text_area :description, :required => 'required' %>
           </p>
-        <br>
+          <br>
           <p>
             <%= form.submit %>
           </p>
