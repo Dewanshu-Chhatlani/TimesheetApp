@@ -6,13 +6,19 @@ class UserRecordsController < ApplicationController
         @user_record = UserRecord.find(params[:id])
     end
     def new
+        @user_record ||=  UserRecord.new
     end
     def create
         # render plain: params[:user_record].inspect
         # @user_record = UserRecord.new(user_record_params)
         @user_record = current_user.user_records.create(user_record_params)
-        @user_record.save
-        redirect_to @user_record
+        if @user_record.save
+            flash[:notice] = "Successful"
+            redirect_to @user_record
+        else
+            # flash[:alert] = @user_record.errors.full_messages.join('<br>')
+           render "new"
+        end
     end
     private
         def user_record_params

@@ -1,48 +1,50 @@
-<h2 style='padding-left:60px;'>Fill Timesheet</h2>
-<br>
-<div style="width:800px;">
-    <%= form_with scope: :user_record, url: user_records_path, local: true do |form| %>
-      
-      <p style='padding-left:60px;'>
-        <%= form.label :client_name %><br>
-        <%= form.text_field :client_name, :required => 'required' %>
-      </p>
-      <br>
-      <p style='padding-left:60px;'>
-        <%= form.label :project_name %><br>
-        <%= form.text_field :project_name, :required => 'required' %>
-      </p>
-      <br>
-      <p style='padding-left:60px;'>
-        <%= form.label :activity_type %><br>
-        <%= form.collection_select(:activity_type, Activity.all, :activity_type, :activity_type) %>
-      </p>
-      <br>
-      <div style='padding-left:40px;'>
-        <%= form.label :date, 'style' => 'padding-left: 20px' %><br>
-        <span style='padding-left:20px;'>
-        <%= form.text_field :date, placeholder: 'DD-MM-YYYY', class: 'flatpikrcal', readonly: true, :required => 'required' %>
-        </span>
-      </div>
-      <br>
-      <p style='padding-left:60px;'>
-        <%= form.label :start_time %><br>
-        <%= form.text_field :start_time, placeholder: 'HH:MM AM/PM', class: 'flatpickr flatpickr-input active', readonly: true, :required => 'required' %>
-      </p>
+<%= render "devise/shared/error_messages", resource:  @user_record %>
+<div style="margin-left: 60px;">
+    <h2>Fill Timesheet</h2>
     <br>
-      <p style='padding-left:60px;'>
-        <%= form.label :end_time %><br>
-        <%= form.text_field :end_time, placeholder: 'HH:MM AM/PM', class: 'flatpickr flatpickr-input active', readonly: true, :required => 'required' %>
-      </p>
-    <br>
-      <p style='padding-left:60px;'>
-        <%= form.label :description %><br>
-        <%= form.text_area :description, :required => 'required' %>
-      </p>
-    <br>
-      <p style='padding-left:60px;'>
-        <%= form.submit %>
-      </p>
-      <br>
-    <% end %>
+    <div style="width:800px;">
+        <%= form_with scope: :user_record, url: user_records_path, local: true do |form| %>
+          <p>
+            <%= form.label :client_name %><br>
+            <%= form.text_field :client_name, :required => 'required' %>
+          </p>
+          <br>
+          <p>
+            <%= form.label :project_name %><br>
+            <%= form.text_field :project_name, :required => 'required' %>
+          </p>
+          <br>
+          <p>
+            <%= form.label :activity_type %><br>
+            <%= form.collection_select(:activity_type, Activity.all, :activity_type, :activity_type) %>
+          </p>
+          <br>
+          <div>
+            <%= form.label :date %><br>
+            <span>
+            <%= form.text_field :date, placeholder: 'DD-MM-YYYY', class: 'flatpikrcal', readonly: true, :required => 'required' %>
+            </span>
+          </div>
+          <br>
+          <p>
+            <%= form.label :start_time %><br>
+            <%= form.text_field :start_time, placeholder: 'HH:MM AM/PM', class: 'flatpickr flatpickr-input active', readonly: true, :required => 'required' %>
+          </p>
+        <br>
+          <p>
+            <%= form.label :end_time %><br>
+            <%= form.text_field :end_time, placeholder: 'HH:MM AM/PM', class: 'flatpickr flatpickr-input active', readonly: true, :required => 'required' %>
+          </p>
+        <br>
+          <p>
+            <%= form.label :description %><br>
+            <%= form.text_area :description, :required => 'required' %>
+          </p>
+        <br>
+          <p>
+            <%= form.submit %>
+          </p>
+          <br>
+        <% end %>
+    </div>
 </div>
