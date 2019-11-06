@@ -23,11 +23,18 @@
         <% if current_user %>
             <li><%= link_to 'Fill Timesheet', new_user_record_path, :style => 'text-decoration:none' %></li>
             <li><%= link_to 'View my timesheet entries', user_records_path, :style => 'text-decoration:none' %></li>
-            <li><%= link_to 'Change Password', edit_user_registration_path, :style => 'text-decoration:none' %></li>
-            <li><%= link_to 'Log Out', destroy_user_session_path , method: :delete, :style => 'text-decoration:none' %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a><span class="glyphicon glyphicon-user">&nbsp</span><%= current_user.email %></a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration:none;">
+              <span class="glyphicon glyphicon-user"></span>&nbsp &nbsp<%= current_user.email %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="width:215px">
+              <a class="dropdown-item"><%= link_to 'Change Password', edit_user_registration_path, :style => 'text-decoration:none;' %></a><br>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item"><%= link_to 'Log Out', destroy_user_session_path , method: :delete, :style => 'text-decoration:none;' %></a>
+            </div>
+          </li>
         </ul>
         <% else %>
             <li><%= link_to 'Sign Up', new_user_registration_path, :style => 'text-decoration:none' %></li>

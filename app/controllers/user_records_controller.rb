@@ -13,7 +13,7 @@ class UserRecordsController < ApplicationController
         # @user_record = UserRecord.new(user_record_params)
         @user_record = current_user.user_records.create(user_record_params)
         if @user_record.save
-            flash[:notice] = "Successful"
+            flash[:notice] = "Success!"
             redirect_to @user_record
         else
             # flash[:alert] = @user_record.errors.full_messages.join('<br>')
