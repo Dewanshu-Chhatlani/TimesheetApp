@@ -17,15 +17,28 @@ require("flatpickr/dist/flatpickr.css")
 
 document.addEventListener("turbolinks:load", () => {
     // debugger
-  
-flatpickr('.flatpickr', {
+    flatpickr('.flatpickrstart', {
+      noCalendar: true,
+        enableTime: true,
+        dateFormat: 'h:i K',
+        onChange: function(selectedDates, dateStr, instance) {
+          document.getElementById("startpick").innerHTML = "";
+        }
+  });
+flatpickr('.flatpickrend', {
     noCalendar: true,
       enableTime: true,
-      dateFormat: 'h:i K'
+      dateFormat: 'h:i K',
+      onChange: function(selectedDates, dateStr, instance) {
+        document.getElementById("endpick").innerHTML = "";
+      }
 });
 flatpickr('.flatpikrcal', {
   enableTime: false,
-  dateFormat: "d-m-Y"
+  dateFormat: "d-m-Y",
+  onChange: function(selectedDates, dateStr, instance) {
+    document.getElementById("datepick").innerHTML = "";
+  }
 });
 })
 

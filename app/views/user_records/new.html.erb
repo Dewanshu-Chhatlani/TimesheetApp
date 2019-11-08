@@ -1,9 +1,39 @@
+<script>
+    $(document).on('click', '.button', function(){
+      var date = document.getElementById("user_record_date").value;
+      var start = document.getElementById("user_record_start_time").value;
+      var end = document.getElementById("user_record_end_time").value;
+      var status = false;
+      if(date.length<1){
+          document.getElementById("datepick").innerHTML = "Please enter the date.";
+      }
+      else{
+          
+          status = true;
+      }
+      if(start.length<1){
+          document.getElementById("startpick").innerHTML = "Please enter the start time.";
+          status = false;
+      }
+      else{
+        status = true;
+      }
+      if(end.length<1){
+          document.getElementById("endpick").innerHTML = "Please enter the end time.";
+          status = false;
+      }
+      else{
+        status = true;
+      }
+    return status;
+    })  
+</script>
 <%= render "devise/shared/error_messages", resource:  @user_record %>
 <div style="margin-left: 60px;">
     <h2>Fill Timesheet</h2>
     <br>
     <div style="width:800px;">
-        <%= form_with scope: :user_record, url: user_records_path, local: true do |form| %>
+        <%= form_with scope: :user_record, url: user_records_path, :html => { }, local: true do |form| %>
           <p>
             <%= form.label :client_name %><br>
             <%= form.text_field :client_name, :required => 'required' %>
@@ -21,17 +51,20 @@
           <br>
           <p>
             <%= form.label :date %><br>
-            <%= form.text_field :date, placeholder: 'DD-MM-YYYY', class: 'flatpikrcal', readonly: true, :required => 'required' %>
+            <%= form.text_field :date, placeholder: 'DD-MM-YYYY', class: 'flatpikrcal', readonly: true %>
+            <span id="datepick" style="color:red"></span>
           </p>
           <br>
           <p>
             <%= form.label :start_time %><br>
-            <%= form.text_field :start_time, placeholder: 'HH:MM AM/PM', class: 'flatpickr flatpickr-input active', readonly: true, :required => 'required' %>
+            <%= form.text_field :start_time, placeholder: 'HH:MM AM/PM', class: 'flatpickrstart flatpickr-input active', readonly: true %>
+            <span id="startpick" style="color:red"></span>
           </p>
           <br>
           <p>
             <%= form.label :end_time %><br>
-            <%= form.text_field :end_time, placeholder: 'HH:MM AM/PM', class: 'flatpickr flatpickr-input active', readonly: true, :required => 'required' %>
+            <%= form.text_field :end_time, placeholder: 'HH:MM AM/PM', class: 'flatpickrend flatpickr-input active', readonly: true %>
+            <span id="endpick" style="color:red"></span>
           </p>
           <br>
           <p>
@@ -40,7 +73,7 @@
           </p>
           <br>
           <p>
-            <%= form.submit %>
+            <%= form.submit :class => 'button' %>
           </p>
           <br>
         <% end %>

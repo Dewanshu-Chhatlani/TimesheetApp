@@ -30,9 +30,9 @@
               <span class="glyphicon glyphicon-user"></span>&nbsp &nbsp<%= current_user.email %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="width:215px">
-              <a class="dropdown-item"><%= link_to 'Change Password', edit_user_registration_path, :style => 'text-decoration:none;' %></a><br>
+              <a class="dropdown-item"><%= link_to 'Change Password', edit_user_registration_path, :style => 'text-decoration:none;padding-left:30px;' %></a><br>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item"><%= link_to 'Log Out', destroy_user_session_path , method: :delete, :style => 'text-decoration:none;' %></a>
+              <a class="dropdown-item"><%= link_to 'Log Out', destroy_user_session_path , method: :delete, :style => 'text-decoration:none;padding-left:30px' %></a>
             </div>
           </li>
         </ul>
