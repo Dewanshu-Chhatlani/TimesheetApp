@@ -33,7 +33,7 @@
     <h2>Fill Timesheet</h2>
     <br>
     <div style="width:800px;">
-        <%= form_with scope: :user_record, url: user_records_path, :html => { }, local: true do |form| %>
+        <%= form_with scope: :user_record, url: user_records_path, local: true do |form| %>
           <p>
             <%= form.label :client_name %><br>
             <%= form.text_field :client_name, :required => 'required' %>
