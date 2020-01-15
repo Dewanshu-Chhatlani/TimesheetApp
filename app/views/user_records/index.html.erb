@@ -11,6 +11,7 @@
             <th>Start Time:</th>
             <th>End Time:</th>
             <th>Description:</th>
+            <th>Edit:</th>
         </tr>
       </thead>
       <tbody>
@@ -23,6 +24,7 @@
             <td><%= user_record.start_time %></td>
             <td><%= user_record.end_time %></td>
             <td><%= user_record.description %></td>
+            <td><%= link_to 'Edit', edit_user_record_path(user_record) %></td>
             </tr>
         <% end %>
       </tbody>

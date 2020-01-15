@@ -1,0 +1,81 @@
+<script>
+    $(document).on('click', '.button', function(){
+      var date = document.getElementById("user_record_date").value;
+      var start = document.getElementById("user_record_start_time").value;
+      var end = document.getElementById("user_record_end_time").value;
+      var status = false;
+      if(date.length<1){
+          document.getElementById("datepick").innerHTML = "Please enter the date.";
+      }
+      else{
+          
+          status = true;
+      }
+      if(start.length<1){
+          document.getElementById("startpick").innerHTML = "Please enter the start time.";
+          status = false;
+      }
+      else{
+        status = true;
+      }
+      if(end.length<1){
+          document.getElementById("endpick").innerHTML = "Please enter the end time.";
+          status = false;
+      }
+      else{
+        status = true;
+      }
+    return status;
+    })  
+</script>
+<%= render "devise/shared/error_messages", resource:  @user_record %>
+<div style="margin-left: 60px;">
+    <h2>Update Timesheet Entry</h2>
+    <br>
+    <div style="width:800px;">
+        <%= form_with model: @user_record, local: true do |form| %>
+          <p>
+            <%= form.label :client_name %><br>
+            <%= form.text_field :client_name, :required => 'required' %>
+          </p>
+          <br>
+          <p>
+            <%= form.label :project_name %><br>
+            <%= form.text_field :project_name, :required => 'required' %>
+          </p>
+          <br>
+          <p>
+            <%= form.label :activity_type %><br>
+            <%= form.collection_select(:activity_type, Activity.all, :activity_type, :activity_type) %>
+          </p>
+          <br>
+          <p>
+            <%= form.label :date %><br>
+            <%= form.text_field :date, placeholder: 'DD-MM-YYYY', class: 'flatpikrcal', readonly: true %>
+            <span id="datepick" style="color:red"></span>
+          </p>
+          <br>
+          <p>
+            <%= form.label :start_time %><br>
+            <%= form.text_field :start_time, placeholder: 'HH:MM AM/PM', class: 'flatpickrstart flatpickr-input active', readonly: true %>
+            <span id="startpick" style="color:red"></span>
+          </p>
+          <br>
+          <p>
+            <%= form.label :end_time %><br>
+            <%= form.text_field :end_time, placeholder: 'HH:MM AM/PM', class: 'flatpickrend flatpickr-input active', readonly: true %>
+            <span id="endpick" style="color:red"></span>
+          </p>
+          <br>
+          <p>
+            <%= form.label :description %><br>
+            <%= form.text_area :description, :required => 'required' %>
+          </p>
+          <br>
+          <p>
+            <%= form.submit :class => 'button' %>
+          </p>
+          <br>
+        <% end %>
+    </div>
+</div>
