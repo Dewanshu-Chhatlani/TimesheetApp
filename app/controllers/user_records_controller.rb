@@ -1,6 +1,6 @@
 class UserRecordsController < ApplicationController
     def index
-        @user_records = current_user.user_records
+        @user_records = current_user.user_records.order('created_at DESC')
     end
     
     def show
