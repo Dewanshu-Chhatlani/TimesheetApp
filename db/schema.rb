@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2019_10_31_054831) do
     t.string "client_name"
     t.string "project_name"
     t.string "activity_type"
-    t.string "date"
+    t.date "date"
     t.string "start_time"
     t.string "end_time"
     t.text "description"

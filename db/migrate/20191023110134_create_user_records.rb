@@ -5,7 +5,7 @@ class CreateUserRecords < ActiveRecord::Migration[6.0]
       t.string :client_name
       t.string :project_name
       t.string :activity_type
-      t.string :date
+      t.date :date
       t.string :start_time
       t.string :end_time
       t.text :description

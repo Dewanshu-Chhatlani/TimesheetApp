@@ -46,7 +46,7 @@
           <br>
           <p>
             <%= form.label :activity_type %><br>
-            <%= form.collection_select(:activity_type, Activity.all, :activity_type, :activity_type) %>
+            <%= form.select(:activity_type, UserRecord::ACTIVITY_TYPES) %>
           </p>
           <br>
           <p>
