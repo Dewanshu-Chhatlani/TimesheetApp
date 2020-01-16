@@ -16,5 +16,5 @@ class UserRecord < ApplicationRecord
         :message => "Time format invalid"
     }
     validates :description, :presence => true
-    ACTIVITY_TYPES = ["Client Call","Code Review","Deployment","Development","Meeting","Miscalaneous","Support","Testing"]
+    ACTIVITY_TYPES = ["Client Call","Code Review","Deployment","Development","Meeting","Miscellaneous","Support","Testing"]
 end
