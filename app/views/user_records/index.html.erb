@@ -20,7 +20,7 @@
             <td><%= user_record.client_name %></td>
             <td><%= user_record.project_name %></td>
             <td><%= user_record.activity_type %></td>
-            <td><%= user_record.date %></td>
+            <td><%= user_record.date.strftime("%d-%m-%Y") %></td>
             <td><%= user_record.start_time %></td>
             <td><%= user_record.end_time %></td>
             <td><%= user_record.description %></td>
