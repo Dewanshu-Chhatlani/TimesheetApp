@@ -26,7 +26,26 @@
         status = true;
       }
     return status;
-    })  
+    });
+    
+    
+    $(document).on('click', '#user_record_client_name', function(){
+        var client_nm = $(this).val();
+        document.getElementById("empty_project").innerHTML = "";
+        $.get('/user_records/dropdown', {client_name: client_nm}, function(data){
+            $("#user_record_project_name").html("");
+            $.each(data, function(index, value){
+              $("#user_record_project_name").append( "<option value='" + data[index][1] + "'>" + data[index][1] + "</option>" );
+            });
+          
+        });
+    });
+
+    $(document).on('click', '#user_record_project_name', function(){
+      if ( $('#user_record_project_name').children().length == 0 ){
+        document.getElementById("empty_project").innerHTML = "Please select Client first.";
+      }
+    });
 </script>
 <%= render "devise/shared/error_messages", resource:  @user_record %>
 <div style="margin-left: 60px;">
@@ -36,12 +55,13 @@
         <%= form_with model: @user_record, local: true do |form| %>
           <p>
             <%= form.label :client_name %><br>
-            <%= form.text_field :client_name, :required => 'required' %>
+            <%= form.collection_select(:client_name, Client.all, :client_name,:client_name) %>
           </p>
           <br>
           <p>
             <%= form.label :project_name %><br>
-            <%= form.text_field :project_name, :required => 'required' %>
+            <%= form.select(:project_name, []) %>
+            <span id="empty_project" style="color:red">
           </p>
           <br>
           <p>
