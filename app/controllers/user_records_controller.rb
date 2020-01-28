@@ -38,6 +38,16 @@ class UserRecordsController < ApplicationController
         end
     end
 
+    def dropdown
+        @client_nm = params[:client_name]
+        @client = Client.where(client_name: @client_nm).first
+        if @client
+            render :json => @client.projects.collect{|c| [c.id, c.project_name]}
+        else
+            render json: []
+        end
+    end
+
     private
         def user_record_params
             params.require(:user_record).permit(:client_name, :project_name, :activity_type, :date, :start_time, :end_time, :description)

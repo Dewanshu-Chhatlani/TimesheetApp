@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/user_records/dropdown', to: "user_records#dropdown"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
