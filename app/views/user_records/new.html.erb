@@ -35,7 +35,7 @@
         $.get('/user_records/dropdown', {client_name: client_nm}, function(data){
             $("#user_record_project_name").html("");
             $.each(data, function(index, value){
-              $("#user_record_project_name").append( "<option value='" + data[index][0] + "'>" + data[index][1] + "</option>" );
+              $("#user_record_project_name").append( "<option value='" + data[index][1] + "'>" + data[index][1] + "</option>" );
             });
           
         });
@@ -60,7 +60,7 @@
           <br>
           <p>
             <%= form.label :project_name %><br>
-            <%= select_tag "user_record_project_name", "", id: "user_record_project_name" %>
+            <%= form.select(:project_name, []) %>
             <span id="empty_project" style="color:red">
           </p>
           <br>
