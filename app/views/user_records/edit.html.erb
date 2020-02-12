@@ -66,51 +66,5 @@
 <div style="margin-left: 60px;">
     <h2>Update Timesheet Entry</h2>
     <br>
-    <div style="width:800px;">
-        <%= form_with model: @user_record, local: true do |form| %>
-          <p>
-            <%= form.label :client_name %><br>
-            <%= form.collection_select(:client_name, Client.all, :client_name,:client_name) %>
-          </p>
-          <br>
-          <p>
-            <%= form.label :project_name %><br>
-            <%= form.select(:project_name, []) %>
-            <span id="empty_project" style="color:red">
-          </p>
-          <br>
-          <p>
-            <%= form.label :activity_type %><br>
-            <%= form.select(:activity_type, UserRecord::ACTIVITY_TYPES) %>
-          </p>
-          <br>
-          <p>
-            <%= form.label :date %><br>
-            <%= form.text_field :date, placeholder: 'DD-MM-YYYY', class: 'flatpikrcal', readonly: true %>
-            <span id="datepick" style="color:red"></span>
-          </p>
-          <br>
-          <p>
-            <%= form.label :start_time %><br>
-            <%= form.text_field :start_time, placeholder: 'HH:MM AM/PM', class: 'flatpickrstart flatpickr-input active', readonly: true %>
-            <span id="startpick" style="color:red"></span>
-          </p>
-          <br>
-          <p>
-            <%= form.label :end_time %><br>
-            <%= form.text_field :end_time, placeholder: 'HH:MM AM/PM', class: 'flatpickrend flatpickr-input active', readonly: true %>
-            <span id="endpick" style="color:red"></span>
-          </p>
-          <br>
-          <p>
-            <%= form.label :description %><br>
-            <%= form.text_area :description, :required => 'required' %>
-          </p>
-          <br>
-          <p>
-            <%= form.submit :class => 'button' %>
-          </p>
-          <br>
-        <% end %>
-    </div>
+    <%= render "form"%>
 </div>
