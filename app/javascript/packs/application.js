@@ -36,7 +36,6 @@ document.addEventListener("turbolinks:load", () => {
   flatpickr(".flatpikrcal", {
     enableTime: false,
     dateFormat: "d-m-Y",
-    defaultDate: "today",
     onChange: function(selectedDates, dateStr, instance) {
       document.getElementById("datepick").innerHTML = "";
     }
