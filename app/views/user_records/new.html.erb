@@ -3,12 +3,20 @@
       var date = document.getElementById("user_record_date").value;
       var start = document.getElementById("user_record_start_time").value;
       var end = document.getElementById("user_record_end_time").value;
+      var project = document.getElementById("user_record_project_name").value;
       var status = false;
-      if(date.length<1){
-          document.getElementById("datepick").innerHTML = "Please select the Date.";
+      if(project.length<1){
+          document.getElementById("empty_project").innerHTML = "Please select the Project Name."
+          status = false;
       }
       else{
-          
+          status = true;
+      }
+      if(date.length<1){
+          document.getElementById("datepick").innerHTML = "Please select the Date.";
+          status = false;
+      }
+      else{
           status = true;
       }
       if(start.length<1){
@@ -43,12 +51,12 @@
 
     $(document).on('click', '#user_record_project_name', function(){
       if ( $('#user_record_project_name').children().length == 0 ){
-        document.getElementById("empty_project").innerHTML = "Please select Client first.";
+        document.getElementById("empty_project").innerHTML = "Please select Client Name first.";
       }
     });
 </script>
 <style>
-  #user_record_client_name, #user_record_project_name, #user_record_activity_type{
+  #user_record_client_name, #user_record_project_name, #user_record_activity_type, #user_record_date, #user_record_start_time, #user_record_end_time{
     width: 125px;
     height: 25px;
   }
@@ -67,7 +75,7 @@
           <p>
             <%= form.label :project_name %><br>
             <%= form.select(:project_name, []) %>
-            <span id="empty_project" style="color:red">
+            <span id="empty_project" style="color:red"></span>
           </p>
           <br>
           <p>
